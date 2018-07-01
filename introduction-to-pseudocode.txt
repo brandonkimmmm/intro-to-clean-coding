@@ -1,0 +1,61 @@
+Short Answer
+
+1. Pseudocode helps programmers develop algorithms without having to worry about syntax. It helps them brainstorm.
+
+2. It would not run because it is not valid code that a computer can interpret.
+
+Programming Assignment
+
+1.
+  INPUT first number
+  INPUT second number
+  IF first number is greater than second number
+    RETURN first number
+  ELSE
+    RETURN second number
+
+2.
+  FOR number = 1 to 100
+    PRINT number
+  ENDFOR
+
+3.
+  INPUT entry
+  CALL the inPhonebook method with entry as the parameter and store the result in answer
+  RETURN Answer
+
+4.
+  a)
+    function returnGreaterNumber() {
+      let num1 = prompt("Enter first number");
+      let num2 = prompt("Enter second number");
+
+      findGreaterNumber(num1, num2);
+    }
+
+    function findGreaterNumber(num1, num2) {
+      if (num1 > num2) {
+        return num1;
+      } else {
+        return num2;
+      }
+    }
+
+  b)
+    function printNumbers() {
+      for (let i = 1; i < 101; i++) {
+        return i;
+      }
+    }
+
+  c)
+    let entry = prompt('Search in phonebook');
+    function searchPhonebook(entry) {
+      phonebook.map((data) => {
+        if (data === entry) {
+          return true;
+        }
+      })
+
+      return false;
+    }
