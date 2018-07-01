@@ -1,0 +1,146 @@
+1. Clean coding is important because it allows other coders to interpret the code easily. It also makes maintenance easier.
+
+2. Trains also rely heavily on computers to operate effectively and reliably. Unreliable code can cause crashes, missed timetables, and defective components like doors.
+
+3. The code can be cleaned up by extracting the Fahrenheit and Celsius functions out of the main function.
+    FUNCTION do(x, y)
+      IF y = "F" THEN
+        Fahrenheit(x)
+      ELSE IF y = "C" THEN
+        Celsius(x)
+      END IF
+    END FUNCTION
+
+    FUNCTION Fahrenheit(x)
+      PRINT (x−32) * (5/9)
+    END FUNCTION
+
+    FUNCTION Celsius(x)
+      PRINT x * 1.8000 + 32.00
+    END FUNCTION
+
+4. This code wouldn't work because it is printing percentage when percentage is not within the scope.
+    FUNCTION calcPercent(sum, total)
+      IF NOT(total = 0) THEN
+        SET percentage to sum / total * 100
+        PRINT percentage
+      ELSE
+        PRINT "Sorry, cannot divide by 0"
+      END IF
+    END FUNCTION
+
+5.
+  a)
+    FUNCTION checkOutCustomer(subTotal, discountRate, paymentType)
+     PRINT "Your total due is: " + subTotal * discountRate + (subTotal * tax)
+     paymentReply(subTotal, discountRate, paymentType)
+    END FUNCTION
+
+    FUNCTION paymentReply(subTotal, discountRate, paymentType)
+      IF paymentType = 'CASH' THEN
+        CALL getPayment RETURNING amount
+        PRINT "Change due: " + amount - subTotal * discountRate + (subTotal * tax)
+      ELSE IF paymentType = 'CREDIT CARD' THEN
+        PRINT "Your credit card has been charged: " + subTotal * discountRate + (subTotal * tax)
+      END IF
+    END FUNCTION
+
+  b)
+    FUNCTION checkoutBook(book, guest)
+      IF guest.accountActive AND NOT(guest.hasOverdueBooks) AND guest.outstandingFees = 0 THEN
+        APPEND book to guest.books
+        SET book.status to "Checked Out"
+        PRINT "Your books have been issued."
+      ELSE
+         PRINT "Unable to check out book."
+      END IF
+    END FUNCTION
+
+  c)
+    CLASS BankAccount
+
+      FUNCTION displayBalance
+        PRINT balance
+      END FUNCTION
+
+      FUNCTION deposit(amount)
+        SET balance to balance + amount
+      END FUNCTION
+
+      FUNCTION withdraw(amount)
+         IF balance > amount THEN
+           SET balance to balance - amount
+         END
+      END FUNCTION
+
+    END
+
+    CLASS offers
+
+      FUNCTION creditCardOffer
+         IF NOT(customer.hasCreditCard) THEN
+             CALL offerCreditCard
+         END
+      END FUNCTION
+
+      FUNCTION checkStatus
+         IF NOT(customer.hasCheckingAccount) THEN
+             CALL offerCheckingAccount
+         END
+      END FUNCTION
+
+    END
+
+6.
+  function sumOrSquareRoot(numbers) {
+    let sum = numbers.reduce((total, num) => total + num);
+    if (isPerfectSquare(sum)) {
+      return Math.sqrt(sum);
+    } else {
+      return sum;
+    }
+  }
+
+  function isPerfectSquare(number) {
+    return Number.isInteger(Math.sqrt(number));
+  }
+
+7.
+  function containsDuplicate(numbers) {
+    for (var i = 0; i < numbers.length; i++) {
+      for (var j = i + 1; j < numbers.length; j++) {
+        if (numbers[i] === numbers[j]) {
+          return true;
+        }
+      }
+    }
+    return false;
+  }
+
+8.
+  function isAnagram(stringOne, stringTwo) {
+    if (stringOne.length !== stringTwo.length) {
+      return false;
+    }
+
+    stringOne = convertToArray(stringOne);
+    stringTwo = convertToArray(stringTwo);
+
+    stringOne.map((letter) => {
+      for (let i = 0; i < stringTwo.length; i++) {
+        if (letter === stringTwo[i]) {
+          stringTwo.splice(i, 1);
+        }
+      }
+    })
+
+    if (stringTwo.length === 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  function convertToArray(string){
+    return string.split('');
+  }
